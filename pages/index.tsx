@@ -11,7 +11,6 @@ const Home: NextPage<{ data: HomepageData }> = ({ data }) => {
   const { trendingMovies, latestMovies, latestPeople, latestTv } = data
   // const [latestPeople] = data
   // console.log(data)
-  // console.log(trendingMovies)
 
   const trendingHero = trendingMovies[1]
   return (
@@ -125,16 +124,16 @@ const Home: NextPage<{ data: HomepageData }> = ({ data }) => {
 export default Home
 
 export async function getStaticProps() {
-  const res1 = axios.get('http://localhost:3000/api/trending')
-  const res2 = axios.get('http://localhost:3000/api/latest/movies')
-  const res3 = axios.get('http://localhost:3000/api/latest/tv')
-  const res4 = axios.get('http://localhost:3000/api/latest/people')
+  const res1 = axios.get(`${process.env.REQ_URL}/api/trending`)
+  const res2 = axios.get(`${process.env.REQ_URL}/api/latest/movies`)
+  const res3 = axios.get(`${process.env.REQ_URL}/api/latest/tv`)
+  const res4 = axios.get(`${process.env.REQ_URL}/api/latest/people`)
 
   // const [trendingMoviesdata, latestMoviesData, latestTvData, latestPeopleData] =
   //   await Promise.all([res1, res2, res3, res4])
   const [trendingMovies, latestMovies, latestTv, latestPeople] =
     await Promise.all([res1, res2, res3, res4])
-  // const response = await fetch('http://localhost:3000/api/trending')
+  // const response = await fetch('${process.env.REQ_URL}/api/trending')
   // const data = await response.json()
   // console.log(data)
   return {

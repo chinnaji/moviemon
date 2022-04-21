@@ -11,7 +11,7 @@ function Ratings({ rate }: ratingProps) {
     <div className="my-3 flex text-xl text-lime">
       {/* map over arrayDeps and return rating stars */}
       {arrayDeps.map((arrayDep, index) => (
-        <FaStar />
+        <FaStar key={index} />
       ))}
 
       {/* <FaStar />
