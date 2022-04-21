@@ -39,7 +39,7 @@ function Hero({ trendingHero }: heroProps) {
         {/* overlay */}
         <div
           className="absolute z-10 h-screen w-screen 
-                bg-gradient-to-r from-[#010101]  to-[#3D3D3D] opacity-30 "
+                bg-gradient-to-r from-[#010101]  to-[#3D3D3D] opacity-50 "
         ></div>
         {/* movie details */}
 
