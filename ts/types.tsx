@@ -18,10 +18,23 @@ export type generalTMDBResponse = {
   origin_country?: string[]
   first_air_date?: string
 }
+export type peopleType = {
+  adult: boolean
+  gender: number
+  id: number
+  known_for: []
+  known_for_department: string
+  name: string
+  popularity: number
+  profile_path: string
+}
+
 export type HomepageData = {
   // data: {
   trendingMovies: generalTMDBResponse[]
   latestMovies: generalTMDBResponse[]
+  latestTv: generalTMDBResponse[]
+  people: peopleType[]
   // latestTv: generalTMDBResponse[]
   // latestPeople: generalTMDBResponse[]
   // }
@@ -42,6 +55,7 @@ export type title = {
   title: string
   id: number
   size: string
+  pathName: string
 }
 export type TrendingMoviesSection = {
   latestMovies: generalTMDBResponse[]

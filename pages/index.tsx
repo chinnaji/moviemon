@@ -4,14 +4,17 @@ import Hero from '../components/Hero'
 import MovieCard from '../components/MovieCard'
 import img from '../images/img.png'
 import Image from 'next/image'
-import { HomepageData } from '../ts/types'
+import { HomepageData, peopleType } from '../ts/types'
 import axios from 'axios'
 import TrendingMoviesSection from '../components/TrendingMoviesSection'
+import TrendingTvSection from '../components/TrendingTvSection'
+import PeopleSection from '../components/PeopleSection'
 
-const Home: NextPage<{ data: any }> = ({ data }) => {
-  const { trendingMovies, latestMovies } = data
+const Home: NextPage<{ data: HomepageData }> = ({ data }) => {
+  const { trendingMovies, latestMovies, latestTv, people } = data
   // const [latestPeople] = data
-  // console.log(latestMovies)
+  // console.log(latestTv)
+  // console.log(people)
 
   const trendingHero = trendingMovies[1]
   return (
@@ -19,14 +22,8 @@ const Home: NextPage<{ data: any }> = ({ data }) => {
       <Hero trendingHero={trendingHero} />
 
       <TrendingMoviesSection latestMovies={latestMovies} />
-
-      {/* <section className="mx-auto max-w-[1200px] py-10">
-        <h2 className="w-fit border-b text-2xl font-semibold text-zinc-100">
-          Trending Movies
-        </h2>
-        <div className="scroll_wheel z-40 mx-auto mb-10 flex snap-x snap-proximity gap-7 overflow-y-hidden overflow-x-scroll pt-10 pb-5">
-        </div>
-      </section> */}
+      <TrendingTvSection latestTv={latestTv} />
+      <PeopleSection people={people} />
     </main>
   )
 }
@@ -40,25 +37,29 @@ export async function getStaticProps() {
   const res2 = axios.get(
     `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.API_KEY}&language=en-US`
   )
-  const [trendingMovies, latestMovies] = await Promise.all([res1, res2])
-  // console.log(latestMovies.data)
+  const res3 = axios.get(
+    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&language=en-US`
+  )
+  const res4 = axios.get(
+    `https://api.themoviedb.org/3/person/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
+  )
+  const [trendingMovies, latestMovies, latestTv, people] = await Promise.all([
+    res1,
+    res2,
+    res3,
+    res4,
+  ])
+  console.log(people.data)
 
-  // const response = await fetch('${process.env.REQ_URL}/api/trending')
-  // const data = await response.json()
-  // console.log(data)
   return {
     props: {
       // homepageData: data,
       data: {
         trendingMovies: trendingMovies.data.results,
         latestMovies: latestMovies.data.results,
+        latestTv: latestTv.data.results,
+        people: people.data.results,
       },
-      // data: [
-      //   trendingMovies.data,
-      //   latestMovies.data,
-      //   latestTv.data,
-      //   latestPeople.data,
-      // ],
     },
     revalidate: 1,
   }

@@ -12,6 +12,7 @@
 
 html {
   background-color: black;
+  scroll-behavior: smooth;
 }
 
 .scroll_wheel::-webkit-scrollbar {
@@ -32,4 +33,11 @@ html {
 
 .movie_card:hover .like_button {
   display: block !important;
+}
+.item_block span {
+  overflow: hidden !important;
+}
+.item_block:hover .item_img {
+  transform: scale(1.1);
+  transition: all 1s ease-in-out;
 }

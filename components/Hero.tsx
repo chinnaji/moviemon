@@ -22,7 +22,7 @@ function Hero({ trendingHero }: heroProps) {
     id,
   } = trendingHero
   return (
-    <section className="relative max-h-[calc(100vh-50px)] overflow-hidden md:max-h-[calc(70vh-70px)]">
+    <section className="relative max-h-[calc(100vh-80px)] overflow-hidden md:max-h-[calc(80vh-70px)]">
       <div className="relative h-screen w-screen">
         {/* movie thumbanil */}
         <Image
