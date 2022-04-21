@@ -7,10 +7,10 @@ import Image from 'next/image'
 import { HomepageData } from '../ts/types'
 import axios from 'axios'
 
-const Home: NextPage<{ data: HomepageData }> = ({ data }) => {
-  const { trendingMovies, latestMovies, latestPeople, latestTv } = data
+const Home: NextPage<{ data: any }> = ({ data }) => {
+  const { trendingMovies } = data
   // const [latestPeople] = data
-  // console.log(data)
+  console.log(data)
 
   const trendingHero = trendingMovies[1]
   return (
@@ -124,15 +124,14 @@ const Home: NextPage<{ data: HomepageData }> = ({ data }) => {
 export default Home
 
 export async function getStaticProps() {
-  const res1 = axios.get(`${process.env.REQ_URL}/api/trending`)
-  const res2 = axios.get(`${process.env.REQ_URL}/api/latest/movies`)
-  const res3 = axios.get(`${process.env.REQ_URL}/api/latest/tv`)
-  const res4 = axios.get(`${process.env.REQ_URL}/api/latest/people`)
+  const res1 = axios.get(
+    `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`
+  )
+  // const res2 = axios.get(`${process.env.REQ_URL}/api/latest/movies`)
 
   // const [trendingMoviesdata, latestMoviesData, latestTvData, latestPeopleData] =
   //   await Promise.all([res1, res2, res3, res4])
-  const [trendingMovies, latestMovies, latestTv, latestPeople] =
-    await Promise.all([res1, res2, res3, res4])
+  const [trendingMovies] = await Promise.all([res1])
   // const response = await fetch('${process.env.REQ_URL}/api/trending')
   // const data = await response.json()
   // console.log(data)
@@ -140,10 +139,7 @@ export async function getStaticProps() {
     props: {
       // homepageData: data,
       data: {
-        trendingMovies: trendingMovies.data,
-        latestMovies: latestMovies.data,
-        latestTv: latestTv.data,
-        latestPeople: latestPeople.data,
+        trendingMovies: trendingMovies.data.results,
       },
       // data: [
       //   trendingMovies.data,

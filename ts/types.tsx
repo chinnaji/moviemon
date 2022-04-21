@@ -21,9 +21,9 @@ export type generalTMDBResponse = {
 export type HomepageData = {
   // data: {
   trendingMovies: generalTMDBResponse[]
-  latestMovies: generalTMDBResponse[]
-  latestTv: generalTMDBResponse[]
-  latestPeople: generalTMDBResponse[]
+  // latestMovies: generalTMDBResponse[]
+  // latestTv: generalTMDBResponse[]
+  // latestPeople: generalTMDBResponse[]
   // }
 }
 
