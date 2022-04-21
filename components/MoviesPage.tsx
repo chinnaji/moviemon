@@ -20,8 +20,8 @@ function MoviesPage({ movies }: moviesType) {
         {movies.map((movie, index) => (
           <span
             key={movie.id}
-            className={`movie_card item_block block w-1/2 p-2 ${
-              index % 5 === 2 ? 'md:w-1/2' : 'md:w-1/4'
+            className={`movie_card item_block block w-full p-2 md:w-1/2 ${
+              index % 5 === 2 ? 'lg:w-1/2' : 'lg:w-1/4'
             }`}
           >
             <div className="relative h-[350px] w-full snap-center rounded-3xl shadow">
@@ -45,7 +45,7 @@ function MoviesPage({ movies }: moviesType) {
                   <Ratings rate={movie.vote_average} />
                   <Date date={movie.release_date} />
                 </div>
-                <Like id={movie.id} type="people" />
+                <Like id={movie.id} type="movie" />
               </div>
             </div>
           </span>
