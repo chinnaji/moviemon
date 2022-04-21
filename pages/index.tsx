@@ -6,109 +6,19 @@ import img from '../images/img.png'
 import Image from 'next/image'
 import { HomepageData } from '../ts/types'
 import axios from 'axios'
+import TrendingMoviesSection from '../components/TrendingMoviesSection'
 
 const Home: NextPage<{ data: any }> = ({ data }) => {
   const { trendingMovies, latestMovies } = data
   // const [latestPeople] = data
-  console.log(latestMovies)
+  // console.log(latestMovies)
 
   const trendingHero = trendingMovies[1]
   return (
     <main>
       <Hero trendingHero={trendingHero} />
 
-      <section className="mx-auto max-w-[1200px] py-10">
-        <h2 className="mb-7 ml-2 w-fit border-b text-2xl font-semibold text-zinc-100">
-          Trending Movies
-        </h2>
-        <div className="flex flex-wrap">
-          {/* movie 1 width===75% */}
-          <span className="movie_card block w-full p-2 lg:w-[70%]">
-            <div className="relative h-[290px] w-full snap-center rounded-3xl shadow">
-              {/* content */}
-              <Image
-                src={img}
-                className="z-10 rounded-lg"
-                layout="fill"
-                objectFit="cover"
-                priority
-                quality={100}
-              />
-              <div className="rouded-lg absolute bottom-0 z-20 mt-auto flex h-full w-full flex-col justify-end rounded-lg border border-zinc-900 bg-opacity-75 bg-gradient-to-t from-black p-5 text-white">
-                <h3 className="text-xl font-semibold">
-                  {' '}
-                  Movie title Lodata ipsum 3
-                </h3>
-
-                <button className="like_button absolute top-6 right-6 block w-fit rounded bg-red-400 px-2 lg:hidden">
-                  Like
-                </button>
-              </div>
-            </div>
-          </span>
-          {/*  */}
-          {/* movie 2 width===30% */}
-          <span className="w-full rounded p-2 md:w-[30%]">
-            <div className="relative h-[290px] w-full snap-center rounded-3xl shadow">
-              {/* content */}
-              <Image
-                src={img}
-                className="z-10 rounded-lg"
-                layout="fill"
-                objectFit="cover"
-                priority
-                quality={100}
-              />
-            </div>
-          </span>
-          {/*  */}
-          {/* movie 2 width===30% */}
-          <span className="w-full rounded p-2 md:w-[33.3%]">
-            <div className="relative h-[290px] w-full snap-center rounded-3xl shadow">
-              {/* content */}
-              <Image
-                src={img}
-                className="z-10 rounded-lg"
-                layout="fill"
-                objectFit="cover"
-                priority
-                quality={100}
-              />
-            </div>
-          </span>
-          {/*  */}
-          {/* movie 2 width===30% */}
-          <span className="w-full rounded p-2 md:w-[33.3%]">
-            <div className="relative h-[290px] w-full snap-center rounded-3xl shadow">
-              {/* content */}
-              <Image
-                src={img}
-                className="z-10 rounded-lg"
-                layout="fill"
-                objectFit="cover"
-                priority
-                quality={100}
-              />
-            </div>
-          </span>
-          {/*  */}
-          {/* movie 2 width===30% */}
-          <span className="w-full rounded p-2 md:w-[33.3%]">
-            <div className="relative h-[290px] w-full snap-center rounded-3xl shadow">
-              {/* content */}
-              <Image
-                src={img}
-                className="z-10 rounded-lg"
-                layout="fill"
-                objectFit="cover"
-                priority
-                quality={100}
-              />
-            </div>
-          </span>
-          {/*  */}
-        </div>
-      </section>
+      <TrendingMoviesSection latestMovies={latestMovies} />
 
       {/* <section className="mx-auto max-w-[1200px] py-10">
         <h2 className="w-fit border-b text-2xl font-semibold text-zinc-100">

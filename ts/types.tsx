@@ -26,7 +26,9 @@ export type HomepageData = {
   // latestPeople: generalTMDBResponse[]
   // }
 }
-
+export type heroProps = {
+  trendingHero: generalTMDBResponse
+}
 export type ratingProps = {
   rate: number
 }
@@ -39,4 +41,8 @@ export type description = {
 export type title = {
   title: string
   id: number
+  size: string
+}
+export type TrendingMoviesSection = {
+  latestMovies: generalTMDBResponse[]
 }

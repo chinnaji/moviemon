@@ -7,10 +7,7 @@ import Link from 'next/link'
 import Date from './Date'
 import OverView from './OverView'
 import Title from './Title'
-
-type heroProps = {
-  trendingHero: generalTMDBResponse
-}
+import { heroProps } from '../ts/types'
 
 function Hero({ trendingHero }: heroProps) {
   // console.log(trendingHero)
@@ -49,7 +46,7 @@ function Hero({ trendingHero }: heroProps) {
    md:max-w-[800px]  "
           >
             {/* title */}
-            <Title title={name || 'NA'} id={id} />
+            <Title title={name || 'NA'} id={id} size="text-5xl" />
 
             <div className="flex items-center">
               <Ratings rate={vote_average} />
