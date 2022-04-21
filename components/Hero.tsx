@@ -46,7 +46,12 @@ function Hero({ trendingHero }: heroProps) {
    md:max-w-[800px]  "
           >
             {/* title */}
-            <Title title={name || 'NA'} id={id} size="text-5xl" />
+            <Title
+              pathName="movie"
+              title={name || 'NA'}
+              id={id}
+              size="text-5xl"
+            />
 
             <div className="flex items-center">
               <Ratings rate={vote_average} />
