@@ -11,7 +11,6 @@ type people = {
 }
 
 function PeopleSection({ people }: people) {
-  console.log(people.length)
   return (
     <section className="my-10 mx-auto max-w-[1200px] py-10" id="people">
       {/* header */}

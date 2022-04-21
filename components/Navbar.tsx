@@ -15,16 +15,16 @@ function Navbar() {
       path: '/',
     },
     {
-      title: 'Android Games',
-      path: '/android-games',
+      title: 'Movies',
+      path: '/movies',
     },
     {
-      title: 'Android Apps',
-      path: '/android-apps',
+      title: 'Tv Series',
+      path: '/tv',
     },
     {
-      title: 'Tips n Tricks',
-      path: '/tips-n-tricks',
+      title: 'People',
+      path: '/people',
     },
     // {
     //   title: "Contact",
@@ -64,7 +64,7 @@ function Navbar() {
               />
             </a> */}
             <a>
-              <h1 className="cursor-pointer text-xl font-bold text-zinc-100">
+              <h1 className="cursor-pointer text-xl font-bold text-lime">
                 MOVIEMON
               </h1>
             </a>
@@ -87,7 +87,7 @@ function Navbar() {
               <ul className="ml-auto -mt-10 flex h-full flex-col items-center justify-center bg-black text-zinc-100 md:-mt-0 lg:flex-row">
                 {navLinks.map((navLink) => (
                   <li
-                    className={`hover:text-teal my-4 flex flex-col items-center px-4 py-2 text-lg font-medium uppercase md:text-sm lg:my-1 lg:capitalize`}
+                    className={`my-4 flex flex-col items-center px-4 py-2 text-lg font-medium uppercase hover:text-lime md:text-sm lg:my-1 lg:capitalize`}
                     onClick={() => setIsSidebar(false)}
                     key={navLink.title}
                   >
@@ -104,7 +104,7 @@ function Navbar() {
                 // onClick={() => setIsSearch(!isSearch)}
                 onClick={() => setIsSearch(true)}
               >
-                <FiSearch className="hover:text-teal mr-2 cursor-pointer text-2xl text-zinc-100" />
+                <FiSearch className="mr-2 cursor-pointer text-2xl text-zinc-100 hover:text-lime" />
               </span>
 
               <FiMenu
