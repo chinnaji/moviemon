@@ -9,6 +9,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         res.status(200).json(data.results)
     }
-    res.status(400).json("ERROR 404")
+    else {
+        res.status(400).json("ERROR 404")
 
+    }
 }

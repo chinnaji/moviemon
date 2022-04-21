@@ -13,7 +13,7 @@ type heroProps = {
 }
 
 function Hero({ trendingHero }: heroProps) {
-  console.log(trendingHero)
+  // console.log(trendingHero)
   const {
     name,
     poster_path,
