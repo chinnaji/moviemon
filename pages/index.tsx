@@ -1,86 +1,158 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Hero from '../components/Hero'
+import MovieCard from '../components/MovieCard'
+import img from '../images/img.png'
 import Image from 'next/image'
+import { HomepageData } from '../ts/types'
+import axios from 'axios'
 
-const Home: NextPage = () => {
+const Home: NextPage<{ data: HomepageData }> = ({ data }) => {
+  const { trendingMovies, latestMovies, latestPeople, latestTv } = data
+  // const [latestPeople] = data
+  // console.log(data)
+  // console.log(trendingMovies)
+
+  const trendingHero = trendingMovies[1]
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <main>
+      <Hero trendingHero={trendingHero} />
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+      <section className="mx-auto max-w-[1200px] py-10">
+        <h2 className="mb-7 ml-2 w-fit border-b text-2xl font-semibold text-zinc-100">
+          Trending Movies
+        </h2>
+        <div className="flex flex-wrap">
+          {/* movie 1 width===75% */}
+          <span className="movie_card block w-full p-2 lg:w-[70%]">
+            <div className="relative h-[290px] w-full snap-center rounded-3xl shadow">
+              {/* content */}
+              <Image
+                src={img}
+                className="z-10 rounded-lg"
+                layout="fill"
+                objectFit="cover"
+                priority
+                quality={100}
+              />
+              <div className="rouded-lg absolute bottom-0 z-20 mt-auto flex h-full w-full flex-col justify-end rounded-lg border border-zinc-900 bg-opacity-75 bg-gradient-to-t from-black p-5 text-white">
+                <h3 className="text-xl font-semibold">
+                  {' '}
+                  Movie title Lodata ipsum 3
+                </h3>
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+                <button className="like_button absolute top-6 right-6 block w-fit rounded bg-red-400 px-2 lg:hidden">
+                  Like
+                </button>
+              </div>
+            </div>
+          </span>
+          {/*  */}
+          {/* movie 2 width===30% */}
+          <span className="w-full rounded p-2 md:w-[30%]">
+            <div className="relative h-[290px] w-full snap-center rounded-3xl shadow">
+              {/* content */}
+              <Image
+                src={img}
+                className="z-10 rounded-lg"
+                layout="fill"
+                objectFit="cover"
+                priority
+                quality={100}
+              />
+            </div>
+          </span>
+          {/*  */}
+          {/* movie 2 width===30% */}
+          <span className="w-full rounded p-2 md:w-[33.3%]">
+            <div className="relative h-[290px] w-full snap-center rounded-3xl shadow">
+              {/* content */}
+              <Image
+                src={img}
+                className="z-10 rounded-lg"
+                layout="fill"
+                objectFit="cover"
+                priority
+                quality={100}
+              />
+            </div>
+          </span>
+          {/*  */}
+          {/* movie 2 width===30% */}
+          <span className="w-full rounded p-2 md:w-[33.3%]">
+            <div className="relative h-[290px] w-full snap-center rounded-3xl shadow">
+              {/* content */}
+              <Image
+                src={img}
+                className="z-10 rounded-lg"
+                layout="fill"
+                objectFit="cover"
+                priority
+                quality={100}
+              />
+            </div>
+          </span>
+          {/*  */}
+          {/* movie 2 width===30% */}
+          <span className="w-full rounded p-2 md:w-[33.3%]">
+            <div className="relative h-[290px] w-full snap-center rounded-3xl shadow">
+              {/* content */}
+              <Image
+                src={img}
+                className="z-10 rounded-lg"
+                layout="fill"
+                objectFit="cover"
+                priority
+                quality={100}
+              />
+            </div>
+          </span>
+          {/*  */}
         </div>
-      </main>
+      </section>
 
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
-    </div>
+      {/* <section className="mx-auto max-w-[1200px] py-10">
+        <h2 className="w-fit border-b text-2xl font-semibold text-zinc-100">
+          Trending Movies
+        </h2>
+        <div className="scroll_wheel z-40 mx-auto mb-10 flex snap-x snap-proximity gap-7 overflow-y-hidden overflow-x-scroll pt-10 pb-5">
+        </div>
+      </section> */}
+    </main>
   )
 }
 
 export default Home
+
+export async function getStaticProps() {
+  const res1 = axios.get('http://localhost:3000/api/trending')
+  const res2 = axios.get('http://localhost:3000/api/latest/movies')
+  const res3 = axios.get('http://localhost:3000/api/latest/tv')
+  const res4 = axios.get('http://localhost:3000/api/latest/people')
+
+  // const [trendingMoviesdata, latestMoviesData, latestTvData, latestPeopleData] =
+  //   await Promise.all([res1, res2, res3, res4])
+  const [trendingMovies, latestMovies, latestTv, latestPeople] =
+    await Promise.all([res1, res2, res3, res4])
+  // const response = await fetch('http://localhost:3000/api/trending')
+  // const data = await response.json()
+  // console.log(data)
+  return {
+    props: {
+      // homepageData: data,
+      data: {
+        trendingMovies: trendingMovies.data,
+        latestMovies: latestMovies.data,
+        latestTv: latestTv.data,
+        latestPeople: latestPeople.data,
+      },
+      // data: [
+      //   trendingMovies.data,
+      //   latestMovies.data,
+      //   latestTv.data,
+      //   latestPeople.data,
+      // ],
+    },
+    revalidate: 1,
+  }
+}
