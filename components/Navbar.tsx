@@ -100,12 +100,12 @@ function Navbar() {
             </div>
 
             <div className="flex items-center justify-center">
-              <span
+              {/* <span
                 // onClick={() => setIsSearch(!isSearch)}
                 onClick={() => setIsSearch(true)}
               >
                 <FiSearch className="mr-2 cursor-pointer text-2xl text-zinc-100 hover:text-lime" />
-              </span>
+              </span> */}
 
               <FiMenu
                 onClick={() => setIsSidebar(true)}

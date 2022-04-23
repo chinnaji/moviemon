@@ -26,10 +26,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.API_KEY}&language=en-US&page=${context.params?.pageId}
                 `
   )
+
   // total_pages
   // const { results: movies } = await res.json()
   const movies = await res.json()
-  // console.log(movies.total_pages)
+
   return {
     props: {
       data: movies.results,
