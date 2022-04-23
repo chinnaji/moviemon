@@ -31,25 +31,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const res3 = await fetch(
     `https://api.themoviedb.org/3/movie/${context.params?.movieId}/similar?api_key=${process.env.API_KEY}&language=en-US&page=1    `
   )
-  //   const res4 =
-  //     await fetch(`https://api.themoviedb.org/3/movie/${context.params?.movieId}/credits?api_key=${process.env.API_KEY}&language=en-US
-  // `)
+
   const movieDetails = await res.json()
   const videos = await res2.json()
   const similarMovies = await res3.json()
-  //   const credits = await res4.json()
-  //   console.log(videos.results)
-  //   movieProps:{
-  //   movieDetails,
-  //   videos,
-  //   similarMovies
-  //   }
-  // type movieResType = {
-  //     movieDetails: movieType
-  //     videos:videosType
-  //     similarMovies:generalTMDBResponse
-  //   }
-  console.log(similarMovies.results)
+
   return {
     props: {
       movieDetails,

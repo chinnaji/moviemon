@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Hero from '../components/Hero'
-import MovieCard from '../components/MovieCard'
 import img from '../images/img.png'
 import Image from 'next/image'
 import { HomepageData, peopleType } from '../ts/types'

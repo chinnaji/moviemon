@@ -11,14 +11,15 @@ import Pagination from './Pagination'
 
 type similarMoviesRes = {
   similar: generalTMDBResponse[]
+  isTv: boolean
 }
-function SimilarMovies({ similar }: similarMoviesRes) {
+function SimilarMovies({ similar, isTv }: similarMoviesRes) {
   return (
     <main className="mx-auto max-w-[1200px]">
       {/* header */}
       {/* <Pagination /> */}
-      <h2 className="mt-10 mb-5 pl-2 text-2xl font-semibold text-zinc-100">
-        SIMILAR MOVIES
+      <h2 className="mt-10 mb-5 ml-2 w-fit border-b pb-1 text-3xl font-semibold text-zinc-100">
+        YOU MAY ALSO LIKE👇
       </h2>
 
       <div className="flex flex-wrap">
@@ -44,7 +45,7 @@ function SimilarMovies({ similar }: similarMoviesRes) {
                   size="md:text-xl text-xl"
                   id={movie.id}
                   title={movie.title || movie.name || 'N/A'}
-                  pathName="movie"
+                  pathName={isTv ? 'tv' : 'movie'}
                 />
                 <div className="flex items-center">
                   <Ratings rate={movie.vote_average} />
@@ -52,7 +53,7 @@ function SimilarMovies({ similar }: similarMoviesRes) {
                     date={movie.release_date || movie.first_air_date || 'NA'}
                   />
                 </div>
-                <Like id={movie.id} type="movie" />
+                <Like id={movie.id} type={isTv ? 'tv' : 'movie'} />
               </div>
             </div>
           </span>
