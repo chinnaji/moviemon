@@ -20,7 +20,7 @@ function TrendingTvSection({ latestTv }: latestTvType) {
           TV SHOWS
         </h2>
 
-        <Link passHref href="/tv">
+        <Link passHref href="/tv-series/1">
           <a className="h-fit border-b text-sm text-zinc-100 hover:border-b-lime hover:text-lime">
             See More
           </a>

@@ -6,18 +6,25 @@ import Like from './Like'
 import Image from 'next/image'
 import Ratings from './Ratings'
 import Date from './Date'
+import { useRouter } from 'next/router'
+import Pagination from './Pagination'
+import MovieCard from './MovieCard'
 
-type moviesType = {
-  movies: generalTMDBResponse[]
+type dataType = {
+  data: generalTMDBResponse[]
 }
 
-function MoviesPage({ movies }: moviesType) {
+function dataPage({ data }: dataType) {
+  console.log(data)
   return (
     <section className="mx-auto max-w-[1200px]" id="people">
       {/* header */}
+      {/* <Pagination /> */}
+
+      <Link href="/data/2">hell</Link>
 
       <div className="flex flex-wrap">
-        {movies.map((movie, index) => (
+        {data.map((movie, index) => (
           <span
             key={movie.id}
             className={`movie_card item_block block w-full p-2 md:w-1/2 ${
@@ -38,12 +45,14 @@ function MoviesPage({ movies }: moviesType) {
                 <Title
                   size="md:text-2xl text-xl"
                   id={movie.id}
-                  title={movie.title || 'N/A'}
-                  pathName="movie"
+                  title={movie.title || movie.name || 'N/A'}
+                  pathName="tv"
                 />
                 <div className="flex items-center">
                   <Ratings rate={movie.vote_average} />
-                  <Date date={movie.release_date} />
+                  <Date
+                    date={movie.release_date || movie.first_air_date || 'NA'}
+                  />
                 </div>
                 <Like id={movie.id} type="movie" />
               </div>
@@ -55,4 +64,4 @@ function MoviesPage({ movies }: moviesType) {
   )
 }
 
-export default MoviesPage
+export default dataPage

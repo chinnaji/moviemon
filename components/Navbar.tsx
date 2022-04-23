@@ -16,11 +16,11 @@ function Navbar() {
     },
     {
       title: 'Movies',
-      path: '/movies',
+      path: '/movies/1',
     },
     {
       title: 'Tv Series',
-      path: '/tv',
+      path: '/tv-series/1',
     },
     {
       title: 'People',

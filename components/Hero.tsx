@@ -14,6 +14,7 @@ function Hero({ trendingHero }: heroProps) {
     poster_path,
     title,
     backdrop_path,
+    release_date,
     overview,
     first_air_date,
     vote_average,
@@ -46,14 +47,14 @@ function Hero({ trendingHero }: heroProps) {
             {/* title */}
             <Title
               pathName="movie"
-              title={name || 'NA'}
+              title={name || title || 'NA'}
               id={id}
               size="text-5xl"
             />
 
             <div className="flex items-center">
               <Ratings rate={vote_average} />
-              <Date date={first_air_date || 'N/A'} />
+              <Date date={first_air_date || release_date || 'N/A'} />
             </div>
 
             {/* description */}

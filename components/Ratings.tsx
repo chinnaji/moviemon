@@ -7,12 +7,15 @@ function Ratings({ rate }: ratingProps) {
   const convertRate = Math.floor(rate / 2)
   //   create an array with number of elements based on value from  convertRate
   const arrayDeps = Array(convertRate).fill(convertRate)
+
   return (
-    <div className="my-3 flex text-base text-lime md:text-xl">
+    <div className="my-3 flex text-xl text-lime">
       {/* map over arrayDeps and return rating stars */}
-      {arrayDeps.map((arrayDep, index) => (
-        <FaStar key={index} />
-      ))}
+      {rate ? (
+        arrayDeps.map((arrayDep, index) => <FaStar key={index} />)
+      ) : (
+        <FaStar />
+      )}
 
       {/* <FaStar />
       <FaStar />
