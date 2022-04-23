@@ -24,7 +24,7 @@ function Navbar() {
     },
     {
       title: 'People',
-      path: '/people',
+      path: '/people/1',
     },
     // {
     //   title: "Contact",

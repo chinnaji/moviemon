@@ -31,7 +31,7 @@ function Pagination({ totalPages, path }: paginationTypes) {
     return <h1 className="text-xl text-white">LOADING...</h1>
   }
   return (
-    <section className="my-10 mx-auto flex w-fit text-zinc-100">
+    <section className="my-10 mx-auto flex w-fit text-xl text-zinc-100">
       {/* hide start button when page gets to the beginning */}
       {currentPage === minPage ? null : ( // </Link> //   <a className="bg-zinc-800 hover:bg-zinc-700 px-3 py-1"> 1</a> // <Link href={`/${path}/1`} passHref>
         <>

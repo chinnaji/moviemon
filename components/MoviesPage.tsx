@@ -15,9 +15,9 @@ type dataType = {
 }
 
 function dataPage({ data }: dataType) {
-  console.log(data)
+  //   console.log(data)
   return (
-    <section className="mx-auto max-w-[1200px]" id="people">
+    <main className="mx-auto max-w-[1200px]">
       {/* header */}
       {/* <Pagination /> */}
 
@@ -60,7 +60,7 @@ function dataPage({ data }: dataType) {
           </span>
         ))}
       </div>
-    </section>
+    </main>
   )
 }
 
