@@ -1,9 +1,7 @@
 import React from 'react'
-import PeoplePage from '../../components/PeoplePage'
 import { GetServerSideProps } from 'next'
 import { personType } from '../../ts/types'
-import Pagination from '../../components/Pagination'
-import PersonPage from '../../components/personPage'
+import PersonPage from '../../components/PersonPage'
 
 type personResType = {
   personDetails: personType

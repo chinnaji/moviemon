@@ -9,7 +9,7 @@ function PersonPage({ personDetails }: personResType) {
   return (
     <main className="mx-auto my-10 flex max-w-[1200px] flex-wrap text-zinc-100">
       <section className="h-[70vh] w-full p-2 md:w-[35%]">
-        <div className="w-md relative h-full snap-center rounded-3xl shadow">
+        <div className="w-md relative flex h-full snap-center items-center justify-center rounded-3xl shadow">
           {/* content */}
           <Image
             src={`https://image.tmdb.org/t/p/w500${personDetails.profile_path}`}
@@ -21,7 +21,7 @@ function PersonPage({ personDetails }: personResType) {
           />
         </div>
       </section>
-      <section className="w-full p-2 md:w-[65%]">
+      <section className="w-full py-2 px-5 md:w-[65%]">
         <h1 className="mt-5 text-4xl font-bold text-lime">
           {personDetails.name}
           <span className="mb-10 block text-sm text-zinc-300">
