@@ -13,7 +13,7 @@ function index({ movieDetails, similarMovies, videos }: movieResType) {
   return (
     <>
       <MoviePage videos={videos} movieDetails={movieDetails} />
-      <SimilarMovies similar={similarMovies} />
+      <SimilarMovies isTv={false} similar={similarMovies} />
     </>
   )
 }
